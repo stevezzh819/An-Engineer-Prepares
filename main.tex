@@ -2080,11 +2080,109 @@ Take note that we assume all initial conditions on the system are zero.
     \[y(t) = \mathscr{L}^{-1}\{G(s)\}=g(t) \quad G(s) = \mathscr{L}\{\text{Impulse Response}\}\]
     \item First Order System \\
     Consider a first order system $\displaystyle G(s) = \frac{1}{s+\sigma}$. Inverse Laplace transformation gives $g(t) = e^{-\sigma t}$. \\
-    The time costant of the system $\tau$ is defined as $\displaystyle \tau = \frac{1}{\sigma}$ as $\displaystyle \frac{1}{e} = 0.368$ times the initial value. \\
+    The time constant of the system $\tau$ is defined as $\displaystyle \tau = \frac{1}{\sigma}$ as $\displaystyle \frac{1}{e} = 0.368$ times the initial value. \\
     Note that the shape of the system response is dominated by the shape of the \textbf{smaller pole}.
     \item Second Order System \\
-
+    A standard $2^{nd}$ order transfer function is expressed as
+    \[H(s) = \frac{K \omega_n^2}{s^2 + 2 \zeta \omega_n s + \omega_n^2} = \frac{K \omega_n}{(s + \zeta \omega_n)^2 + \omega_n^2 (1 - \zeta^2)}\]
+    The impulse response is given by
+    \[y_i(t) = h(t) = \frac{K \omega_n}{\sqrt{1 - \zeta^2}} e^{-\sigma t} \sin(\omega_d t)\]
+    The step response is given by
+    \[y_s(t) = K - \frac{K}{\sqrt{1 - \zeta^2}} e^{-\sigma t} \sin(\omega_d t + \cos^{-1}(\zeta))\]
+    \item Poles position and impulse responses
+    \begin{itemize}
+        \item real, positive poles correspond to growing exponential terms
+        \item real, negative poles correspond to decaying exponential terms
+        \item a poles at $s = 0$ correspond to a constant term
+        \item complex pole pairs with positive real part correspond to exponentially growing sinusoidal terms
+        \item complex pole pairs with negative real part correspond to exponentially decaying sinusoidal terms
+        \item pure imaginary pole pairs correspond to sinusoidal terms
+        \item repeated poles yield same types of terms, multiply by powers of t
+    \end{itemize}
 \end{enumerate}
+\textbf{Step responses}
+\begin{enumerate}
+    \item For a step response $\displaystyle Y_s(s) = G(s)U(s)$, $\displaystyle y_s(t) = \mathscr{L}^{-1} \left\{ \frac{G(s)}{s} \right\}$
+    \item DC Gain \\
+    This is the ratio of the output of a system to its input (presumed constant) after all transients have decayed. \\
+    If the magnitude of a step input is $A$. We then have the \textit{Final Value Theorem} and the DC gain is
+     \[K = \frac{\displaystyle \lim_{ t \to \infty} y(t)}{\displaystyle \lim_{t \to \infty} U(t)} = \frac{AG(0)}{A} = G(0)\]
+    \item Integrator 
+    \[y(t) = \int_{0}^{t} K_i u(\tau) d\tau\]
+    where $K_i$ is known as the integration gain.\\
+    The transfer function is 
+    \[G(s) = \frac{Y(s)}{U(s)} = \frac{K_i}{s}\]
+    The step response is 
+    \[y(t) = K_i t\]
+    Integrator is marginally stable as its impulse response is non-decreasing. 
+    \item Differentiator 
+    \[y(t) = K_d \frac{du(t)}{dt}\]
+    where $K_d$ is the derivative gain. \\
+    The transfer function is 
+    \[G(s) = \frac{Y(s)}{U(s)} = K_ds\]
+    The step response is 
+    \[y(t) = K_d \delta(t)\]
+    \item Transportation delay \\
+    A type of time delay occurs in systems which require a finite time to move material or transmit signal from one point to another.
+    \[y(t) = u(t-t_d), \quad t_d = \frac{\text{distance}}{\text{speed}}\]
+    The transfer function is 
+    \[G(s) = \frac{Y(s)}{U(s)} = e^{-st_d}\]
+    \item First Order System \\
+    The General transfer function is given by
+    \[G(s) = \frac{Y(s)}{U(s)} = \frac{K}{\tau s+1}; \quad y(0)= 0\]
+    where the pole is located at $\displaystyle s =- \frac{1}{\tau}$ \\
+    The unit step response is given by
+    \[y_s(t) = K - Ke^{-\frac{t}{\tau}}\]
+    Steady-state output $= \lim_{s\rightarrow0}G(s) \times $magnitude of step.
+    The time constant $\tau$ for step response is $63.2\%$ of the final value $K$. The $2\%$ settling time is $4\tau$ around $98\%$ of $K$.
+    \item Second Order System
+    The general transfer function is given by
+    \[G(s) = \frac{Y(s)}{U(s)} = \frac{K \omega_n^2}{s^2 + 2 \zeta \omega_n s + \omega_n^2}; \quad y(0)=y'(0)=0\]
+    Poles of a second order system $\displaystyle s = -\zeta \omega_n \pm \omega_n \sqrt{\zeta^2 -1}$
+    \begin{itemize}
+        \item $\zeta > 1$, poles are real and distinct, system is overdamped
+        \item $\zeta = 1$, poles are real and equal (repeated), system is critically damped
+        \item $\zeta < 1$, poles are complex conjugate, system is underdamped
+    \end{itemize}
+    A pair of complex poles can be defined in real and imaginary parts: $s = -\sigma \pm j\omega_d$. \\
+    where $\sigma = \zeta \omega_n$ and $\omega_d = \omega_n \sqrt{1-\zeta^2}$ \\
+    The step response of a second order system is given by
+    \[y(t) = K \left( 1 - \frac{e^{-\sigma t}}{\sqrt{1 - \zeta^2}} \sin(\omega_d t + \phi) \right)\]
+    The magnitude of real part of the pole, determine the exponential envelope. The farther to the left of the imaginary axis, the faster it will reach the steady state.\\
+    The imaginary part of pole determine the frequency of the sinusoidal signal. The bigger the value of $\omega_d$, more oscillation will occur.\\
+    For over and critically damped system, the behave more like first order systems. \\
+    Effect of an additional zero on the system. This will lead to a huge hump in the early part of the step response function.    
+\end{enumerate}
+\textbf{Time domain specifications}
+\begin{enumerate}
+    \item Rise time, $t_r$ : the 10\% to 90\% rise time.
+    \begin{equation}
+        t_r \approx \frac{1.8}{\omega_n}
+    \end{equation}
+    \item Overshoot $M_p$ \\
+    The overshoot formula is given by
+    \begin{equation}
+        M_p = Ke^{-\frac{\pi \zeta}{\sqrt{1-\zeta^2}}}, \quad 0\leq\zeta<1
+    \end{equation}
+    The percentage overshoot is given as
+    \begin{equation}
+        \%M_p = \frac{M_p}{y_{ss}}\times 100\% = e^{-\frac{\pi \zeta}{\sqrt{1-\zeta^2}}}\times 100\%
+    \end{equation}
+    \item Peak time $t_p$ : time it takes the system to reach the maximum overshoot point\\
+    The peak time is given by
+    \begin{equation}
+        t_p = \frac{\pi}{\omega_d}
+    \end{equation}
+    \item Settling time $t_s$ : the time it takes the system transient to decay\\
+    Measure of smallness: 1\%, 2\%, or 5\% have been used.
+    \begin{equation}
+        t_s = \frac{-\ln{(\text{Measure of smallness})}}{\zeta \omega_n} = \frac{4}{\sigma}
+    \end{equation}
+    \item Design Synthesis \\
+    You should find $\omega_n,\;\sin^{-1}\zeta,\;\sigma$ and plot on your $s$-plane.
+\end{enumerate}
+
+\subsubsection{Feedback Control}
 
 
 
