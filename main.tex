@@ -279,7 +279,7 @@ $I(x)$ is the integrating factor
         \centering
         \includegraphics[width=0.75\linewidth]{image/correlation.png}
     \end{figure} \\
-    Linear correlation coefficient, $r$, which is also known as \textit{near Pearson correlation Coefficient}. 
+    Linear correlation coefficient, $r$, which is also known as the\textit{Pearson correlation Coefficient}. 
     \[r = \frac{\sum_{i=1}^{n} (x_i - \bar{x})(y_i - \bar{y})}
     {\sqrt{\sum_{i=1}^{n} (x_i - \bar{x})^2} \sqrt{\sum_{i=1}^{n} (y_i - \bar{y})^2}}
     = \frac{s_{xy}}{s_x s_y}\]
@@ -317,7 +317,7 @@ $I(x)$ is the integrating factor
     Standard deviation: \(\sigma \overset{\text{def}}{=} \sqrt{E\left[(X - \mu)^2\right]}\) \\
     Variance: \(\sigma^2 = E\left[(X - \mu)^2\right]\) \\
     \item Continuous Random Variable \\
-    Expectation of CRV: \(E[X] \overset{\text{def}}{=} \int_{\mathbb{R}}\) \\
+    Expectation of CRV: \(E[X] \overset{\text{def}}{=} \int_{\mathbb{R}} xf(x)dx\) \\
     Variance: \(\sigma^2 \overset{\text{def}}{=} \int_{\mathbb{R}} (X - \mu)^2 f_X(x) \, dx\) \\
     \item Two Basic Rules
     Sum rule
@@ -533,11 +533,51 @@ Linear regression is a popular regression learning algorithm that learns a model
     \item Standard linear regression form
     \[\mathbf{Xw=y},\; \mathbf{X}\in\Re^{ m\times d},\;\mathbf{w}\in\Re^{d\times 1},\; \mathbf{y}\in\Re^{m\times 1}\]
     \[\mathbf{X} = \begin{bmatrix}x_{1,1} & x_{1,2} & \cdots & x_{1,d} \\\vdots & \vdots & \ddots & \vdots \\x_{m,1} & x_{m,2} &\cdots & x_{m,d}\end{bmatrix}, \quad\mathbf{w} = \begin{bmatrix}w_{1} \\\vdots \\w_{d}\end{bmatrix}, \quad\mathbf{y} = \begin{bmatrix}y_{1} \\\vdots \\y_{m}\end{bmatrix}\]
-    
+    \item Problem Statement
+    \[f_{\mathbf{w},b}(\mathbf{x}) = \mathbf{x}^\top \mathbf{w} + b\]
+    The notation $f_{\mathbf{w},b}$ means that the model $f$ is parameterized by two values: $\mathbf{w}$ and $b$.
+    \item Objective function\\
+    To find the optimal values for $\mathbf{w\*}$ and $b\*$ which minimizes the following expression
+    \[\frac{1}{m} \sum_{i=1}^{m} \left( f_{\mathbf{w},b}(\mathbf{x}_i) - y_i \right)^2\]
+    $\left( f_{\mathbf{w},b}(\mathbf{x}_i) - y_i \right)^2$ is called \textbf{loss function}: measuring distance between $f_\mathbf{w}(\mathbf{x}_i)$ and $y_i$.
+    \item Least Square Regression \\
+    Learning : \[\Hat{\mathbf{w}} = (\mathbf{X}^T\mathbf{X})^{-1}\mathbf{X}^T\mathbf{y}\]
+    Prediction: \[\Hat{\mathbf{f_w}}(\mathbf{X_{new}}) = \mathbf{X_{new}}\Hat{\mathbf{w}}\]
+
 
 \end{enumerate}
 
 \newpage
+\subsection{Linux}
+\subsubsection{Common Used Comments}
+\texttt{pwd} : print working directory \\
+\texttt{cd \~}: go back home directory \\ 
+\texttt{cd ..}: go back to previous directory \\
+\texttt{mkdir}: make directory \\
+\texttt{touch <filename>}: create a file eg. \texttt{touch page.html} \\
+\texttt{rm <filename>}: delete file \\
+\texttt{rm -r <folder/directory name>} : delete folder or directory\\
+\texttt{ssh <username>@<IP/Domain name>}: connect to server \\
+\texttt{ssh -p <port number><username>@<IP/Domain name>}: connect from different port to server \\
+\texttt{scp <filename> <IP/server name>:<PATH>}: copy file to server \\
+\texttt{cp <filename> <\~/PATH><newfilename>}: copy file to current folder or other directory \\
+\texttt{cp -r <foldername>}: copy folder \\
+\texttt{sudo}: put in front of command to overwrite permission \\
+\texttt{mv <\~/PATH/filename> <NEW LOCATION>}: move file \\
+\subsubsection{Git}
+\texttt{git init}: initial a repository\\
+\texttt{git status}: check status of the repo\\
+\texttt{git add <filename>}: add file to staging area to be comitted \\
+\texttt{git commit -m "commit message"}:commit a file with a short message\\
+\texttt{git log}: list history of commits\\
+\texttt{git checkout <commit-hash>}: go back to certain version\\
+\texttt{git branch}: list all branches\\
+\texttt{git branch <branch name>}: creat a new branch\\
+\texttt{git merge <branch name>}: Merge your current branch to another branch\\
+
+
+
+\newpage 
 \section{Engineering}
 \subsection{Principle of Electrical engineering}
 \subsubsection{Electronic Components}
@@ -837,8 +877,8 @@ Inductors in series:
         \item The process of doping can also change a p-type semiconductor to n-type semiconductor, and vice versa.
         \item Two types of charge carrier movement namely, drift and diffusion.
         \begin{enumerate}
-            \item Drift current $I_{Drift}$ : Charge carriers move in the presence of electric field.
-            \item Diffusion Current $I_{Diffusion}$ : Charge carriers diffuse owing to the difference in carrier concentration.
+            \item Drift current $I_{\text{Drift}}$ : Charge carriers move in the presence of electric field.
+            \item Diffusion Current $I_{\text{Diffusion}}$ : Charge carriers diffuse owing to the difference in carrier concentration.
         \end{enumerate}
         \item IV Characteristic\\
             \begin{minipage}{0.4\textwidth}
@@ -849,7 +889,6 @@ Inductors in series:
             \end{minipage}
     \end{enumerate}
     \item Forward-Bias \\
-    \\
     \begin{minipage}{0.4\textwidth}
         Under forward-bias, the p-type terminal is at a higher voltage with respect to the n-type terminal. \\
         The forward current remains small $\approx 0$ until the cut-in voltage and increases quickly with a small increase in $V$. \\
@@ -1034,6 +1073,145 @@ Inductors in series:
     $\displaystyle v_{\_} \approx v_{+} = v_{in}$ [Virtually short to ground] \\
     $\displaystyle v_{\_} = v_{out} \times \frac{R_1}{R_1 + R_2} = v_{in}$ [$i_{+} = i_{\_} = 0$]
     $\displaystyle \frac{v_{out}}{v_{in}} = (1+\frac{R_2}{R_1})$
+    \item Unity Gain Buffer (Source follower) 
+    %image here \\
+    \begin{equation}
+        \frac{v_out}{v_in} = 1
+    \end{equation}
+    \item Opamp Parameters ($A_{OL}$ and CMRR) \\
+    The ratio of differential voltage amplification to common-mode voltage amplification.
+    \begin{equation}
+        \text{CMRR} = 20\log(\frac{A_{OL}}{A_{CM}}) = 20\log(A_{OL})-20\log(A_{CM})
+    \end{equation}
+    \item Opamp Parameters (Gain-BandWdith product) 
+    \begin{equation}
+        \text{GBW} = A_{OL} \times f_{3dB}
+    \end{equation}
+    For a inverting amplifier the $\omega_{3dB} = 2\pi \times \text{GBW} \times \frac{R_1}{R_1+R_2}$
+    \item Opamp Parameters (Input Noise $V_n$) 
+    \begin{equation}
+        v_{noise,rms} = \sqrt{V_n^2\times f_{3dB}\times\frac{\pi}{2}}
+    \end{equation}
+    \item Opamp Parameters (PSRR) \\
+    PSRR is a measure of how good the opamp rejects the supply line ripples or interference ($v_i,sup$).
+    \begin{equation}
+        \text{PSRR} = \frac{A_{OL}}{A_{SUP}}
+    \end{equation}
+    \item Opamp Parameters (Slew Rate) 
+    \begin{equation}
+        \frac{dv_{out}}{dt} = 2\pi f \times v_{out,peak}\sin{2\pi ft} < \text{SR}
+    \end{equation}
+    \item Summing Amplifier \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+        V_{out} = -(v_1+v_2+v_3) \text{if $R_1=R_2=R_3=R$}
+    \end{equation}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.75\linewidth]{image/summingamp.png}
+    \end{minipage}
+    \item Logarithmic Amplifier \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+        V_{out} = -V_T\ln{\frac{I_in}{I_S}}
+    \end{equation}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.7\linewidth]{image/logamp.png}
+    \end{minipage}
+    \item Exponential Amplifier \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+        V_{OUT} = -R_1I_Se^{\frac{V_{IN}}{V_T}}
+    \end{equation}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.7\linewidth]{image/expamp.png}
+    \end{minipage}
+    \item Instrumentation Amplifier \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+            v_{out} = -\frac{R_2}{R_1}v_{id}
+        \end{equation}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+            \includegraphics[width=0.75\linewidth]{image/instrumenamp.png}
+    \end{minipage}
+    \item Integrator \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+            v_{out}(t)=-\frac{1}{RC}\int^t_0 v_{in}(t)dt
+        \end{equation}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.75\linewidth]{image/integrator.png}
+    \end{minipage}
+    \item Differentiator \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+            v_{out}(t)=-RC\frac{dv_{in}(t)}{dt}
+        \end{equation}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.75\linewidth]{image/differentiator.png}
+    \end{minipage}
+    \newpage
+    \item Passive $1^{st}$ Order Lowpass Filter \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+            \omega_{3dB}=\frac{1}{R_1C_1}
+        \end{equation}
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.75\linewidth]{image/1storderpassive.png}
+    \end{minipage}
+    \item Passive $1^{st}$ Order Highpass Filter \\
+    \begin{minipage}{0.5\textwidth}
+        \begin{equation}
+            \omega_{3dB}=\frac{1}{R_1C_1}
+        \end{equation}        
+    \end{minipage}
+    \begin{minipage}{0.5\textwidth}
+        \includegraphics[width=0.75\linewidth]{image/1storderhigh.png}
+    \end{minipage}
+    \item Active $1^{st}$ Order Lowpass Filter
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\linewidth]{image/1sactivelowe.png}
+    \end{figure}
+    \item Active $1^{st}$ Order Highpass Filter
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.78\linewidth]{image/1stactivehigh.png}
+    \end{figure}
+    \item \textit{Sallen-Key} Lowpass Filter 
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=0.75\linewidth]{image/ssklowpass.png}
+    \end{figure}
+    \newpage
+    \item \textit{Sallen-Key} High Filter
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.75\linewidth]{image/skhighpass.png}
+    \end{figure}
+    \item Superdiode
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.75\linewidth]{image/superdiode.png}
+    \end{figure}
+    \item Comparator
+    \begin{figure}[!h]
+        \centering
+        \includegraphics[width=0.75\linewidth]{image/comparator.png}
+    \end{figure}
+    
+    
+
+
+
+
+    
 \end{enumerate}
 
 
@@ -2363,6 +2541,7 @@ Take note that we assume all initial conditions on the system are zero.
     \begin{equation}
         t_s = \frac{-\ln{(\text{Measure of smallness})}}{\zeta \omega_n} = \frac{4}{\sigma}
     \end{equation}
+    
     \item Design Synthesis \\
     You should find $\omega_n,\;\sin^{-1}\zeta,\;\sigma$ and plot on your $s$-plane.
 \end{enumerate}
