@@ -1,0 +1,29 @@
+\subsection{Differential equations}
+\subsubsection{First Order Differential equations}
+\textbf{Bernoulli Equation :}
+\begin{enumerate} 
+    \item\[y'+ P(x)y = Q(x) y^n\]
+    \item\[I(x)= e^{\int(1-n)P(x)dx}\]
+$I(x)$ is the integrating factor
+    \item\[y^{1-n}=\frac{1}{I(x)}\left[\int(1-n)Q(x)I(x)dx + C\right]\]
+\end{enumerate}
+\textbf{Situation when encounter :} $y'=g(\frac{y}{x})$
+\begin{enumerate}
+    \item let $v=\frac{y}{x}$
+    \item $y = vx$
+    \item $y'=v+xv'$
+    \item Sub in your equation
+    \item Use Seperable to solve
+    \item Change all $v$ with $\frac{y}{x}$
+\end{enumerate}
+\textbf{Linear first-order ODEs :}
+\begin{enumerate}
+    \item Standard form $y'+P(x)y=Q(x)$
+    \item Integrating factor $R(x)$ is $e^{\int{P(x)dx}}$
+    \item Solution is $y = \frac{1}{R}\int{Q(x)R(x)}dx$
+\end{enumerate}
+\textbf{Common Cases :}
+\begin{enumerate}
+    \item Radioactive Decay: $x(t)=Ae^{-kt}$ and $k=\frac{ln2}{half-life}$
+    \item Temperature cooling: $T(t)=T_{env}-Ae^{-kt}$
+\end{enumerate}

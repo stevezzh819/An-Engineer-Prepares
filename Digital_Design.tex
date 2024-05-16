@@ -1,0 +1,88 @@
+\subsection{Digital Design and computer architecture}
+\subsubsection{Number Systems}
+\textbf{Binary-Coded Decimal}
+\begin{enumerate}
+    \item BCD is a code to represent ten decimal digits (0-9)
+    \item Each decimal digit is reprensented by a 4-bit binary number
+    \item Six number are not used in BDC
+        \begin{itemize}
+            \item Any addition more than 9 need to be plus a 6 $(0110)_{B}$, and the carry is 1
+        \end{itemize}
+    
+\end{enumerate}
+\subsubsection{Boolean Algebra}
+\begin{enumerate}
+    \item Distributive Law
+    \[A + (B \cdot C)=(A+B)\cdot(A+C)\]
+    \item Consensus Law
+    \[AB + \bar{A}C+BC=AB+\bar{A}C\]
+    \item Logical Adjacency
+    \[AB+A\bar{B}=A\]
+    \item Absorption Law
+    \[A+A\cdot B=A\]
+    \[A+\bar{A} \cdot B=A+B\]
+    \item De Morgan's Law
+    \[\overline{A+B}=\bar{A} \cdot \bar{B}\]
+    \item Simplifying Using Boolean algebra laws
+    \begin{itemize}
+        \item Using Absorption Law, Logical Adjacency and Consensus Law sequencialy to obtained the simplest expression
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{SOP and POS}
+\begin{enumerate}
+    \item \textbf{Minterm} is a product term that contains all variables in the function
+    \item \textbf{Maxterm} is a sum term that contains all variables in the function
+    \item \textbf{Canonical Form} is term expressed either by CSOP or CPOS
+    \item SOP $\rightarrow$ Sum of Products
+    \begin{itemize}
+        \item If any product in SOP is \textbf{1}, the function is \textbf{1}. Otherwise is \textbf{0}
+        \item CSOP only includes the terms that outcome is \textbf{1}
+    \end{itemize}
+    \item POS $\rightarrow$ Product of Sum
+        \begin{itemize}
+            \item If any sum in POS is \textbf{0}, the function is \textbf{0}. Otherwise is \textbf{1}
+            \item CPOS only includes the terms that outcome is \textbf{0}
+        \end{itemize}
+\end{enumerate}
+
+\subsubsection{Postive and Negative Logic}
+If a logic is said to be positive or negative, they should follow the following rules
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Voltage level & Positive logic value& Negative logic value \\
+        \hline
+        H & 1 & 0\\
+        \hline
+        L & 0 & 1\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Sequential Circuits}
+\textbf{Synchronous and Asynchronous} \\
+A \textbf{Sequential} logic circuits is said to be Synchronous is responded to inputs at discrete time instants governed by a clock input. Synchronous logic circuits need a clock. \\
+An \textbf{Asynchronous} circuits responds whenever input signals change. No need clock\\
+\\
+\textbf{SR Flip-flop} \\
+SR latch is the simplest circuit that contains memory, S is stand for set and R is stand for reset.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{|c|c|c|}
+    \hline
+         S & R & Output  \\
+         \hline
+         0 & 0 & \textcolor{red}{Hold} \\
+         \hline
+         0 & 1 & Q=0 \\
+         \hline
+         1 & 0 & Q=1 \\
+         \hline
+    \end{tabular}
+    \caption{Truth table for SR FF}
+\end{table}
+
+\subsubsection{Linear Feedback Shift Register}
+

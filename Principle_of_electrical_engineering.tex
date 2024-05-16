@@ -1,0 +1,57 @@
+\subsection{Principle of Electrical engineering}
+\subsubsection{Electronic Components}
+\begin{enumerate}
+    \item \textbf{Capacitance} is a parameter that quantifies the amount of charge required to make one volt p.d across the plates.
+\[C=\frac{q}{V}\]
+The e field created by the separate of charge is:
+\[E=\frac{q}{\epsilon A}\] 
+\[\epsilon_0 =8.85\times10^12\ F/m\]
+where $\epsilon = \epsilon_r \epsilon_0$, and $\epsilon_r$ is the relative permittivity of a given material. 
+\[V=E\times d=\frac{qd}{\epsilon A}\]
+where $d$ is the separation of the two plates, $\epsilon$ is the permittivity or dielectric constant.\\
+Capacitance is :
+\[C=\frac{q}{V}=\frac{\epsilon A}{d}\]
+\[i_C = C\frac{dv_C}{dt}\]
+Voltage in terms of Current:
+\[q(t)=\int^t_{t_0}{i(t)\, dt+q(t_0)}\]
+\[v(t)=\frac{1}{C}\int^t_{t_0}{i(t)\, dt+v(t_0)}\]
+Stored Energy:
+\[w(t)=\frac{1}{2}Cv^2(t)\]
+\[w(t)=\frac{1}{2}v(t)q(t)\]
+\[w(t)=\frac{q^2(t)}{2C}\]
+Capacitance in parallel:
+\[C_{eq} = C_1+C_2+C_3\]
+Capacitance in series:
+\[C_{eq}=\frac{1}{\frac{1}{C_1}+\frac{1}{C_2}+\frac{1}{C_3}}\]
+Capacitor Voltage while being discharged:
+\[v_{C}(t)=V_0e^{-\frac{t}{RC}}\]
+The speed of discharging is determined by the product of R and C, this is known as the \textbf{time constant}: $\tau=RC$ for a RC circuit.\\
+Usually it takes 5$\tau$ to fully charge or discharge a capacitor.\\
+Capacitor Voltage while charging:
+\[v_{C}(t)=V_S(1-e^{-\frac{t}{\tau}})\] when charging from 0 $V$.\\
+Current discharged in Capacitor:
+\[i_C(t)=\frac{V_s}{R}e^{-\frac{t}{RC}}\]
+    \item \textbf{Inductor} stores energy in a circuit and the working principle of an inductor is based on magnetic effect of electric current.\\
+\textbf{Magnetic Flux density} is the amount of magnetic flux passing through per unit area $B = \frac{\phi}{A}$, where, $\phi$ is the magnetic flux and $A$ is the area which flux passes.
+Flux-linkage of a coil:
+\[\Psi = N\phi\]
+\[\Psi = Li\]
+The constant proportionality of L is called \textbf{inductance}. The unit of inductance is Henry($H$). \\
+\textit{Faraday's Law}, the magnitude of the induced voltage is equal to the rate of change of flux-linkage of the coil.
+\[v_L=\frac{d\Psi}{dt}\]
+Element law of inductor:
+\begin{align*}
+v_L &= \frac{dLi}{dt}\\
+    &= L\frac{di}{dt}
+\end{align*}
+Current and voltage relationship in inductor:
+\[i(t)=\frac{1}{L}\int^t_{t_0}v(t)dt+i(t_0)\]
+instantaneous power of an inductor:
+\[p_L =v_Li_L =L\frac{di_L}{dt}i_L\]
+Stored Energy:
+\[w(t)=L\int^{I}_{0}i_Ld_{iL} = \frac{1}{2}Li^2(t)\]
+Inductors in parallel:
+\[L_{eq}=\frac{1}{\frac{1}{L_1}+\frac{1}{L_2}+\frac{1}{L_e}}\]
+Inductors in series:
+\[L_{eq}=L_1+L_2+L_3\]
+\end{enumerate}

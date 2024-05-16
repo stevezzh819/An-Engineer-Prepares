@@ -1,0 +1,61 @@
+\subsection{Verilog and FPGAs}   %EE2026 starts from here
+\subsubsection{First Vivado project}
+\textbf{Creating project for simple Boolean logic}
+\begin{enumerate}
+    \item Creat a Project
+    \item Select the default setting according to the board you are using, in this case is the Basys3 board which configured as [Category: General purpose; Package: cpg236; Tempreture: All remaining; Family: Artix-7; Speed: -1;]
+    \item Define Module, which is for your Boolean design task, you have to add all relevent input and output in the I/O port Definitions
+    \item Type out the relevent content in this design module
+\end{enumerate}
+\textbf{Behavioural Simulation}
+\begin{enumerate}
+    \item Using Project Manager to add a new simulation source
+    \item Define the module name and click OK
+    \item Using verilog language to create your simulation environment
+    \item Example
+    \begin{minted}[linenos=true]{Verilog}
+module module_name(
+
+);
+
+    // reg is simulation for input
+    reg A;    
+    reg B;
+
+    // wire is simulation for output
+    wire LED1;
+    wire LED2;
+    wire LED3;  
+
+    // here is the instantiation of the module to be stimulate
+    simulation_module_name unit000(A, B, LED1, LED2, LED3);
+
+    /*I would like to elaborate more on the instatiatin of the module,
+    the sequence of the varibles in the bracket of unit000() should
+    follow the sequence in your design source, if not you should
+    approach the way of (.A(A), .B(B)) to assign values accordingly;*/
+    
+
+    initial begin
+    A = 0; B = 0; #10;   // 10 is 10pico seconds
+    A = 1; B = 0; #10; 
+    A = 0; B = 1; #10;
+    A = 1; B = 1; #10; 
+    end
+    
+endmodule
+    \end{minted}
+\end{enumerate}
+\textbf{Synthesis}
+\begin{enumerate}
+    \item Synthesis is for optimising purpose to show your logic in a more efficient way
+\end{enumerate}
+\textbf{Design Constrains}
+\begin{enumerate}
+    \item All inputs and outputs should have assign accordingly to its own constrains
+    \item click Run Implementation
+    \item Generate Bitstream, this step will generate a file that is in binary form to wire the logic design into the Basys3 board
+    \item Open Hardware Manager
+    \item Open Target
+    \item Auto connect to the target.
+\end{enumerate}
